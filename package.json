@@ -16,8 +16,12 @@
     "initVersion": "5.9.0"
   },
   "dependencies": {
+    "@chakra-ui/react": "2.3.1",
+    "@emotion/react": "11.10.4",
+    "@emotion/styled": "11.10.4",
     "@next-auth/prisma-adapter": "1.0.4",
     "@prisma/client": "4.3.0",
+    "framer-motion": "7.2.1",
     "next": "12.2.5",
     "next-auth": "4.10.3",
     "next-pwa": "5.6.0",
