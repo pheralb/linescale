@@ -1,12 +1,40 @@
-# Create T3 App
+<div align="center">
+  <h2>linescale</h2>
+  <p>🎉 The web-based text editor for everyone. Inspired by <a href="https://code.visualstudio.com/" target="_blank">Visual Studio Code</a> & <a href="https://github.com/catppuccin/catppuccin" target="_blank">Catppuccin Theme</a>.</p>
 
-This is an app bootstrapped according to the [init.tips](https://init.tips) stack, also known as the T3-Stack.
+![GitHub releases](https://img.shields.io/github/release/pheralb/linescale)
+![GitHub stars](https://img.shields.io/github/stars/pheralb/linescale)
+![GitHub issues](https://img.shields.io/github/issues/pheralb/linescale)
+![GitHub license](https://img.shields.io/github/license/pheralb/linescale)
+[![Required Node.JS >= 14.18.0 || >=16.0.0](https://img.shields.io/static/v1?label=node&message=14.18.0%20||%20%3E=16.0.0&logo=node.js&color=3f893e)](https://nodejs.org/about/releases)
 
-## Why are there `.js` files in here?
+</div>
 
-As per [T3-Axiom #3](https://github.com/t3-oss/create-t3-app/tree/next#3-typesafety-isnt-optional), we take typesafety as a first class citizen. Unfortunately, not all frameworks and plugins support TypeScript which means some of the configuration files have to be `.js` files.
+## ⚒ Contribute
 
-We try to emphasize that these files are javascript for a reason, by explicitly declaring its type (`cjs` or `mjs`) depending on what's supported by the library it is used by. Also, all the `js` files in this project are still typechecked using a `@ts-check` comment at the top.
+You will need:
+
+- [Nodejs +16 (LTS recommended)](https://nodejs.org/en/).
+- [Git](https://git-scm.com/).
+- You can use [npm](https://www.npmjs.com/), [pnpm](https://pnpm.io/es/) or [yarn](https://yarnpkg.com/). 
+- [Planetscale CLI](https://planetscale.com/features/cli) - Download for [Windows](https://github.com/planetscale/cli#windows) / [MacOS](https://github.com/planetscale/cli#macos) / [Linux](https://github.com/planetscale/cli#linux).
+- [Github OAuth ID & Secret](https://github.com/settings/applications/new).
+
+1. Fork the project & clone it:
+
+- [Click here to fork](https://github.com/pheralb/linescale/fork).
+
+and clone:
+
+```bash
+git clone git@github.com:YOUR_NAME/linescale.git
+```
+
+2. Create a new Planetscale database:
+
+- 2a. [Create a new Planetscale database](https://planetscale.com/docs/tutorials/planetscale-quick-start-guide#getting-started-planet-scale-dashboard).
+- 2b. [Create a development branch from your database (optional but recommended)](https://planetscale.com/docs/concepts/branching#create-a-development-branch).
+- 2c. Go to the development (or main if you didn't create it) branch -> click on **connect** -> select **Prisma** & copy the .env variable ([example - connection string](https://planetscale.com/docs/tutorials/connect-nextjs-app#generate-a-connection-string)).
 
 ## What's next? How do I make an app with this?
 
