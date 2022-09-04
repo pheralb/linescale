@@ -30,7 +30,14 @@ export default {
     },
     {
       rel: "preload",
-      href: "/fonts/Inter-Regular.woff2",
+      href: "/fonts/inter.woff2",
+      as: "font",
+      type: "font/woff2",
+      crossOrigin: "anonymous",
+    },
+    {
+      rel: "preload",
+      href: "/fonts/cascadia.woff2",
       as: "font",
       type: "font/woff2",
       crossOrigin: "anonymous",
