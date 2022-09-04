@@ -1,7 +1,7 @@
 {
   "theme_color": "#25273A",
   "background_color": "#25273A",
-  "display": "minimal-ui",
+  "display": "standalone",
   "scope": "/",
   "start_url": "/",
   "name": "linescale",

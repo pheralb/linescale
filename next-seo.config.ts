@@ -1,5 +1,5 @@
 export default {
-  title: "A web-based text editor for everyone",
+  title: "Editor",
   titleTemplate: "%s - Linescale",
   description:
     "A web-based text editor built with Nextjs, Prisma & Planetscale.",
@@ -7,7 +7,7 @@ export default {
   additionalLinkTags: [
     {
       rel: "icon",
-      href: "/icons/icon.ico",
+      href: "/icons/favicon.ico",
     },
     {
       rel: "apple-touch-icon",
