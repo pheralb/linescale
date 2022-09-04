@@ -1,8 +1,10 @@
 import React from "react";
-import { Box, Flex, useColorModeValue } from "@chakra-ui/react";
+import { Box, Divider, Flex, useColorModeValue } from "@chakra-ui/react";
 import SidebarItem from "./item";
 
 import { CodeSimple, Gear, MagnifyingGlass, PuzzlePiece } from "phosphor-react";
+import AuthDropdown from "../auth";
+import { SidebarDataItems } from "./dataItems";
 
 const SidebarContent = () => {
   const bg = useColorModeValue("bg.light", "bg.dark");
@@ -27,26 +29,11 @@ const SidebarContent = () => {
         alignItems="center"
       >
         <Box mt="4">
-          <SidebarItem
-            icon={<CodeSimple size={24} />}
-            description="Editor"
-            href="/"
-          />
-          <SidebarItem
-            icon={<MagnifyingGlass size={24} />}
-            description="Search"
-            href="/search"
-          />
-          <SidebarItem
-            icon={<PuzzlePiece size={24} />}
-            description="Extensions"
-            href="/extensions"
-          />
-          <SidebarItem
-            icon={<Gear size={24} />}
-            description="Settings"
-            href="/"
-          />
+          {SidebarDataItems.map((item) => (
+            <SidebarItem key={item.id} {...item} />
+          ))}
+          <Divider mb="3" />
+          <AuthDropdown />
         </Box>
       </Flex>
     </Box>
