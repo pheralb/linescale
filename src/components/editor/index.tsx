@@ -1,26 +1,33 @@
 import { useColorModeValue } from "@chakra-ui/react";
 import MonacoEditor from "@monaco-editor/react";
-import { oneDarkPro } from "./theme";
+import { CatpuccinMacchiatoAdapter } from "./theme";
 
-const Editor = () => {
+interface EditorProps {
+  value?: string;
+  language?: string;
+  onChange?: (value: string) => void;
+}
+
+const Editor = (props : EditorProps) => {
   const editorTheme = useColorModeValue("vs-light", "linescale");
   const editorLoader = useColorModeValue("#121212", "#ffff");
 
   function handleEditorWillMount(monaco: any) {
-    monaco.editor.defineTheme("linescale", oneDarkPro);
+    monaco.editor.defineTheme("linescale", CatpuccinMacchiatoAdapter);
   }
 
   return (
     <MonacoEditor
-      height="90vh"
+      height="100vh"
       width="100%"
-      language="javascript"
+      language={props.language}
       theme={editorTheme}
-      value="hellooo"
+      value={props.value}
       beforeMount={handleEditorWillMount}
+      onChange={props.onChange as any}
       options={{
         minimap: {
-          enabled: false,
+          enabled: true,
         },
         fontSize: 16,
         fontFamily: "Cascadia",
