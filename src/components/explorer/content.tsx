@@ -1,6 +1,10 @@
 import { Box, Flex, Text, useColorModeValue } from "@chakra-ui/react";
 
-const ExplorerContent = () => {
+interface ExplorerContentProps {
+  children?: React.ReactNode;
+}
+
+const ExplorerContent = (props : ExplorerContentProps) => {
   const bg = useColorModeValue("explorer.light", "explorer.dark");
   return (
     <Box
@@ -15,7 +19,8 @@ const ExplorerContent = () => {
       w="60"
     >
       <Flex direction="column" p="5" aria-label="Explorer files">
-        <Text>Explorer</Text>
+        <Text mb="4">Explorer</Text>
+        {props.children}
       </Flex>
     </Box>
   );
