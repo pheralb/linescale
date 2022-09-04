@@ -14,6 +14,10 @@ const appTheme = extendTheme({
     explorer: {
       light: "#F5F5F5",
       dark: "#1E2030",
+    },
+    tooltip: {
+      light: "#F5F5F5",
+      dark: "#32354e",
     }
   },
   fonts: {
