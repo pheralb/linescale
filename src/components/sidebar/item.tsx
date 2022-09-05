@@ -14,8 +14,8 @@ const SidebarItem = (props: SidebarItemProps) => {
   const colorActive = useColorModeValue("gray.900", "gray.100");
 
   return (
-    <Tooltip bg={bg} label={props.description} hasArrow placement="auto">
-      <CustomLink href={props.href}>
+    <CustomLink href={props.href}>
+      <Tooltip bg={bg} label={props.description} hasArrow placement="auto">
         <Box
           cursor="pointer"
           p="2"
@@ -29,8 +29,8 @@ const SidebarItem = (props: SidebarItemProps) => {
         >
           {props.icon}
         </Box>
-      </CustomLink>
-    </Tooltip>
+      </Tooltip>
+    </CustomLink>
   );
 };
 

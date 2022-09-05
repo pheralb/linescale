@@ -51,8 +51,8 @@ const Home: NextPage = () => {
 
   return (
     <Box as="section" minH="100vh">
-      <ExplorerContent>
-        <Button onClick={createFile}>New file</Button>
+      <ExplorerContent title="Local files">
+        <Button onClick={createFile} fontWeight="light">New file</Button>
         <Divider mt="3" mb="3"/>
         {localFiles?.map((file: FileInterface) => (
           <File

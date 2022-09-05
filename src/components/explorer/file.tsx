@@ -1,5 +1,5 @@
 import { HStack, Text } from "@chakra-ui/react";
-import CodeBlue from "@/components/icons/codeBlue";
+import Document from "@/components/icons/document";
 
 interface FileProps {
   title: string;
@@ -9,13 +9,13 @@ interface FileProps {
 const File = (props: FileProps) => {
   return (
     <HStack
+      spacing={3}
       cursor="pointer"
-      p="2"
-      mb="2"
-      borderWidth="1px"
+      pl="1"
+      mb="3"
       onClick={props.onClick}
     >
-      <CodeBlue width={24} height={24} />
+      <Document width={18} height={18} />
       <Text>{props.title}</Text>
     </HStack>
   );
