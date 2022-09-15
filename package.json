@@ -1,48 +1,45 @@
 {
   "name": "linescale",
-  "author": "@pheralb_",
-  "description": "A web-based text editor for everyone.",
-  "version": "1.0.0",
+  "productName": "linescale",
   "private": true,
+  "version": "1.0.0",
+  "description": "The web-based text editor for everyone.",
+  "author": "@pheralb_",
+  "license": "MIT",
+  "main": "dist/electron/main/index.js",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "prdb": "pscale deploy-request create linescale dev",
-    "postinstall": "prisma generate"
-  },
-  "ct3aMetadata": {
-    "initVersion": "5.9.0"
+    "dev": "vite",
+    "build": "tsc && vite build && electron-builder"
   },
   "dependencies": {
-    "@chakra-ui/react": "2.3.1",
-    "@emotion/react": "11.10.4",
-    "@emotion/styled": "11.10.4",
     "@monaco-editor/react": "4.4.5",
-    "@next-auth/prisma-adapter": "1.0.4",
-    "@prisma/client": "4.3.1",
-    "boring-avatars": "1.7.0",
-    "framer-motion": "7.2.1",
-    "nanoid": "4.0.0",
-    "next": "12.2.5",
-    "next-auth": "4.10.3",
-    "next-pwa": "5.6.0",
-    "next-seo": "5.5.0",
-    "phosphor-react": "1.4.1",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "zod": "3.18.0"
+    "framer-motion": "7.3.5",
+    "react-router-dom": "6.4.0"
   },
   "devDependencies": {
-    "@types/node": "18.7.14",
-    "@types/react": "18.0.18",
+    "@types/react": "18.0.20",
     "@types/react-dom": "18.0.6",
-    "@typescript-eslint/eslint-plugin": "5.36.1",
-    "@typescript-eslint/parser": "5.36.1",
-    "eslint": "8.23.0",
-    "eslint-config-next": "12.2.5",
-    "prisma": "4.3.1",
-    "typescript": "4.8.2"
+    "@vitejs/plugin-react": "2.1.0",
+    "autoprefixer": "10.4.11",
+    "electron": "20.1.4",
+    "electron-builder": "23.3.3",
+    "postcss": "8.4.16",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "sass": "1.54.9",
+    "tailwindcss": "3.1.8",
+    "typescript": "4.8.3",
+    "vite": "3.1.0",
+    "vite-plugin-electron": "0.9.3"
+  },
+  "engines": {
+    "node": "^14.18.0 || >=16.0.0"
+  },
+  "debug": {
+    "env": {
+      "VITE_DEV_SERVER_HOSTNAME": "127.0.0.1",
+      "VITE_DEV_SERVER_PORT": 7777,
+      "VITE_DEV_SERVER_URL": "http://127.0.0.1:7777"
+    }
   }
 }

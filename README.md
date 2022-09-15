@@ -1,112 +1,75 @@
-<div align="center">
-  <h2>linescale</h2>
-  <p>🎉 The web-based text editor for everyone. Inspired by <a href="https://code.visualstudio.com/" target="_blank">Visual Studio Code</a> & <a href="https://github.com/catppuccin/catppuccin" target="_blank">Catppuccin Theme</a>.</p>
+# electron-vite-react
 
-![GitHub releases](https://img.shields.io/github/release/pheralb/linescale)
-![GitHub stars](https://img.shields.io/github/stars/pheralb/linescale)
-![GitHub issues](https://img.shields.io/github/issues/pheralb/linescale)
-![GitHub license](https://img.shields.io/github/license/pheralb/linescale)
-[![Required Node.JS 16+](https://img.shields.io/static/v1?label=node&message=16&nbsp;required%20&logo=node.js&color=3f893e)](https://nodejs.org/about/releases)
+[![awesome-vite](https://awesome.re/mentioned-badge.svg)](https://github.com/vitejs/awesome-vite)
+![GitHub stars](https://img.shields.io/github/stars/caoxiemeihao/vite-react-electron?color=fa6470)
+![GitHub issues](https://img.shields.io/github/issues/caoxiemeihao/vite-react-electron?color=d8b22d)
+![GitHub license](https://img.shields.io/github/license/caoxiemeihao/vite-react-electron)
+[![Required Node.JS >= 14.18.0 || >=16.0.0](https://img.shields.io/static/v1?label=node&message=14.18.0%20||%20%3E=16.0.0&logo=node.js&color=3f893e)](https://nodejs.org/about/releases)
 
-</div>
+English | [简体中文](README.zh-CN.md)
 
-## ⚒ Contribute
+## 👀 Overview
 
-> 🚧 You will need:
-> - [Nodejs +16 (LTS recommended)](https://nodejs.org/en/).
-> - [Git](https://git-scm.com/).
-> - You can use [npm](https://www.npmjs.com/), [pnpm](https://pnpm.io/es/) or [yarn](https://yarnpkg.com/).
-> - [Planetscale CLI](https://planetscale.com/features/cli) - Download for [Windows](https://github.com/planetscale/cli#windows) / [MacOS](https://github.com/planetscale/cli#macos) / [Linux](https://github.com/planetscale/cli#linux).
-> - [Github OAuth ID & Secret](https://github.com/settings/applications/new).
+📦 Ready out of the box  
+🎯 Based on the official [template-react-ts](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts), project structure will be familiar to you  
+🌱 Easily extendable and customizable  
+💪 Supports Node.js API in the renderer process  
+🔩 Supports C/C++ native addons  
+🐞 Debugger configuration included  
+🖥 Easy to implement multiple windows  
 
-1. Fork the project & clone it:
+## 🛫 Quick start
 
-- [Click here to fork](https://github.com/pheralb/linescale/fork).
-
-and clone:
-
-```bash
-git clone git@github.com:YOUR_NAME/linescale.git
+```sh
+npm create electron-vite
 ```
 
-2. Create a new Planetscale database:
+![electron-vite-react.gif](https://github.com/electron-vite/electron-vite-react/blob/main/public/electron-vite-react.gif?raw=true)
 
-- 2a. [Create a new Planetscale database](https://planetscale.com/docs/tutorials/planetscale-quick-start-guide#getting-started-planet-scale-dashboard).
-- 2b. [Create a development branch from your database (optional but recommended)](https://planetscale.com/docs/concepts/branching#create-a-development-branch).
-- 2c. Go to the development (or main if you didn't create it) branch -> click on **connect** -> select **Prisma** & copy the .env variable ([example - connection string](https://planetscale.com/docs/tutorials/connect-nextjs-app#generate-a-connection-string)).
+## 🐞 Debug
 
-3. Create a new Github OAuth App:
+![electron-vite-react-debug.gif](https://github.com/electron-vite/electron-vite-react/blob/main/public/electron-vite-react-debug.gif?raw=true)
 
-- 3a. [Create a new Github OAuth App](https://github.com/settings/applications/new). Generate a new client secret.
-- 3b. In the **"Authorization callback URL"** write:
+## 📂 Directory structure
 
-```txt
-http://localhost:3001/api/auth/callback/github
+Familiar React application structure, just with `electron` folder on the top :wink:  
+*Files in this folder will be separated from your React application and built into `dist/electron`*  
+
+```tree
+├── electron                  Electron-related code
+│   ├── main                  Main-process source code
+│   ├── preload               Preload-scripts source code
+│   └── resources             Resources for the production build
+│       ├── icon.icns             Icon for the application on macOS
+│       ├── icon.ico              Icon for the application
+│       ├── installerIcon.ico     Icon for the application installer
+│       └── uninstallerIcon.ico   Icon for the application uninstaller
+│
+├── release                   Generated after production build, contains executables
+│   └── {version}
+│       ├── {os}-unpacked     Contains unpacked application executable
+│       └── Setup.{ext}       Installer for the application
+│
+├── public                    Static assets
+└── src                       Renderer source code, your React application
 ```
 
-4. Create a .env file in the root of the project:
+## 🚨 Be aware
 
-```bash
-# Planescale connection url =>
-DATABASE_URL=
+This template integrates Node.js API to the renderer process by default. If you want to follow **Electron Security Concerns** you might want to disable this feature. You will have to expose needed API by yourself.  
 
-# Next Auth =>
-NEXTAUTH_SECRET=
-NEXTAUTH_URL=
+To get started, remove the option as shown below. This will [modify the Vite configuration and disable this feature](https://github.com/electron-vite/vite-plugin-electron/tree/main/packages/electron-renderer#config-presets-opinionated).
 
-# Github credentials =>
-GITHUB_CLIENT_ID=
-GITHUB_CLIENT_SECRET=
+```diff
+# vite.config.ts
+
+electron({
+- renderer: {}
+})
 ```
 
-5. Push your tables to the database ([following the schema](https://github.com/pheralb/linescale/blob/main/prisma/schema.prisma)):
+## ❔ FAQ
 
-```bash
-npx prisma db push
-```
-
-and check the tables in the database:
-
-```bash
-npx prisma studio
-```
-
-6. Install the dependencies:
-
-```bash
-npm install
-#or
-pnpm install
-#or
-yarn install
-```
-
-7. Run the project:
-
-```bash
-npm run dev
-#or
-pnpm dev
-#or
-yarn dev
-```
-
-and ready 🥳🥳, open [http://localhost:3001](http://localhost:3000) with your browser to see the result. Now you can contribute to the project and create pull requests.
-
-## 📦 Packages
-
-> ⭐ Using Create T3 App CLI: [Website](https://create.t3.gg/) - [Github](https://github.com/t3-oss/create-t3-app).
-
-- ⚡️ [Next.js](https://nextjs.org/) - The React Framework.
-- 🚀 [Prisma](https://www.prisma.io/) - Next-generation Node.js and TypeScript ORM.
-- 🔑 [Next Auth](https://next-auth.js.org/) - Authentication for Next.js.
-- ⬇️ [Next PWA](https://github.com/shadowwalker/next-pwa) - Zero config PWA plugin for Next.js, with workbox.
-- 🔎 [Next SEO](https://github.com/shadowwalker/next-pwa) - Manage your SEO in Next.js.
-- ✍️ [Monaco-Editor](https://microsoft.github.io/monaco-editor/) - A browser based code editor.
-- 💅 [Chakra UI & Emotion](https://chakra-ui.com/) - Simple, Modular & Accessible UI Components for your React Applications.
-- 💙 [Typescript](https://www.typescriptlang.org/) - A superset of JavaScript.
-- 🔷 [Zod](https://zod.dev/) - TypeScript-first schema validation with static type inference.
-
-## 📝 License
-
-- [MIT License](https://github.com/pheralb/linescale/blob/main/LICENSE).
+- [dependencies vs devDependencies](https://github.com/electron-vite/vite-plugin-electron/tree/main/packages/electron-renderer#dependencies-vs-devdependencies)
+- [Using C/C++ native addons in renderer](https://github.com/electron-vite/vite-plugin-electron/tree/main/packages/electron-renderer#load-nodejs-cc-native-modules)
+- [Node.js ESM packages](https://github.com/electron-vite/vite-plugin-electron/tree/main/packages/electron-renderer#nodejs-esm-packages) (e.g. `execa` `node-fetch`)
